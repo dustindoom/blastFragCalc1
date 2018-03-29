@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dustindoom/blastFragCalc.git"
+    "url": "git+https://github.com/dustindoom/blastFragCalc1.git"
   },
   "author": "Dustin Doom <dustinrdoom@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dustindoom/blastFragCalc/issues"
+    "url": "https://github.com/dustindoom/blastFragCalc1/issues"
   },
-  "homepage": "https://github.com/dustindoom/blastFragCalc#readme"
+  "homepage": "https://github.com/dustindoom/blastFragCalc1#readme"
 }
