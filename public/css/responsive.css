@@ -1,0 +1,140 @@
+
+@media screen and (min-width: 480px) {
+
+  /*************
+  TWO COLUMN LAYOUT
+  *************/
+
+  #primary {
+    width: 50%;
+    float: left;
+  }
+
+  #secondary {
+    width: 40%;
+    float: right;
+}
+
+  /*************
+  3 x 5 = 15
+  100% - 15% = 85%
+  85 /3 =28.333333%
+  *************/
+
+  /*************
+  PAGE: blastFragCalc
+  *************/
+
+  #gallery li {
+    width: 28.3333%;
+  }
+
+  #gallery li:nth-child(4n) {
+    clear: center;
+  }
+
+  /*************
+  PAGE: expSeat
+  *************/
+
+  .profile-phot {
+    float: left;
+    margin: 0 5% 80px 0;
+  }
+
+@media screen and (min-width: 660px) {
+
+    /*************
+  Header
+  *************/
+
+    nav {
+      background: none;
+      float: right;
+      font-size: 1.125em;
+      margin-right: 5%;
+      text-align: right;
+      width: 45%
+    }
+
+    #logo {
+      float: left;
+      margin-left: 5%;
+      text-align: left;
+      width: 45%;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    h2 {
+      font-size:0.825em;
+      margin-bottom:20px;
+    }
+
+    header {
+      border-bottom: 5px solid #86c8e0;
+      margin-bottom: 60px;
+    }
+}
+
+@media screen and (min-width: 670px) {
+
+  /*************
+Header
+*************/
+header {
+    background-color: #000083
+}
+
+
+}
+
+@media screen and (min-width: 870px) {
+
+  /*************
+Header
+*************/
+header {
+    background-color: #000099
+}
+
+
+}
+
+@media screen and (min-width: 1070px) {
+
+  /*************
+Header
+*************/
+header {
+    background-color: #0000af
+}
+
+
+}
+
+@media screen and (min-width: 1270px) {
+
+  /*************
+Header
+*************/
+header {
+    background-color: #0000c5
+}
+
+
+}
+
+@media screen and (min-width: 1470px) {
+
+  /*************
+Header
+*************/
+header {
+    background-color: #0000db
+}
+
+
+}
