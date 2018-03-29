@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<!--    <title>Dustin Doom | Designer</title>  -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400i,700,700i,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <header>
+      <a href="index.html" id=logo>
+        <h1>Blast Seat Extrapolator</h1>
+        <h2>Explosive Safe Distance Calculator to Blast Seat Database</h2>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="selected">Index</a></li>
+          <li><a href="expSeat.html">Blast Seat</a></li>
+          <li><a href="blastFragCalc.html">Safe Distance Calculator</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="wrapper">
+
+<!--Pics-->
+
+      <section>
+        <h3 class="center">Choose what is in front of you...</h3>
+        <ul>
+          <li>
+            <a href="blastFragCalc.html">
+            <img src="img/munitions.jpg" alt="Known or unknown bulk explosives.">
+            </a>
+          </li>
+          <li>
+            <a href="expSeat.html">
+            <img src="img/blastSeat.jpg" alt="Blast seat.">
+            </a>
+          </li>
+
+        </ul>
+      </section>
+      <footer>
+
+<!--links-->
+
+
+        <p>&copy; 2018 Dustin Doom.</p>
+      </footer>
+    </div>
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+
+  </body>
+</html>
+
+<!--previous version saved to prevent perminant loss of something I may need in a few hours...-->
+
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Our Glorious Node Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enter your photo into the Blast Seat Database</h1>
+
+      <div id="list-container"></div>
+
+      <button id="add-file-button" class="btn btn-primary" onclick="handleAddFileClick()">Add File</button>
+      <div id="form-container" class="panel hidden">
+        <form id="add-file-form">
+          <input type="hidden" id="file-id" value="" />
+
+          <div class="form-group">
+            <label for="file-length">Length</label>
+            <input type="text" class="form-control" id="file-length" placeholder="length">
+          </div>
+
+          <div class="form-group">
+            <label for="file-title">Width</label>
+            <input type="text" class="form-control" id="file-title" placeholder="Title">
+          </div>
+
+            <div class="form-group">
+            <label for="file-description">Description</label>
+            <input type="text" class="form-control" id="file-description" placeholder="Description">
+          </div>
+          <button type="button" onclick="submitFileForm()" class="btn btn-success">Submit</button>
+          <button type="button" onclick="cancelFileForm()" class="btn btn-link">cancel</button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <script id="list-template" type="text/x-handlebars-template">
+      <ul class="list-group">
+        {{#each files}}
+        <li class="list-group-item">
+          <strong>{{length}}</strong> - {{width}} - {{description}}
+          <span class="pull-right">
+          <button type="button" class="btn btn-xs btn-default" onclick="handleEditFileClick('{{_id}}')">Edit</button>
+          <button type="button" class="btn btn-xs btn-danger" onclick="handleDeleteFileClick('{{_id}}')">Del</button>
+          </span>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="/js/app.js"></script>
+
+  </body>
+</html>
+-->
