@@ -4,8 +4,10 @@
 var mongoose = require('mongoose');
 
 const FileSchema = new mongoose.Schema({
-  title: String,
-  description: String,
+  image: String,
+  lenght: String,
+  width: String,
+  depth: String,
   created_at: { type: Date, default: Date.now },
   deleted: {type: Boolean, default: false},
 });

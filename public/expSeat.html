@@ -36,9 +36,11 @@ Enter blast seat image and dimentions into the database here.
 
 <button id="add-file-button" class="btn btn-primary" onclick="handleAddFileClick()">Add File</button>
   <div id="form-container" class="panel hidden">
+
       <form id="add-file-form">
         <input type="hidden" id="file-id" value="" />
-        <!--Blast Seat Image(added)-->
+
+<!--Blast Seat Image(added)-->
              <div class="form-group">
                <label for="file-image">Image directory "under construction"</label>
                  <input type="image" class="form-control" id="file-image" placeholder="Image">
@@ -64,17 +66,28 @@ Enter blast seat image and dimentions into the database here.
       <button type="button" onclick="submitFileForm()" class="btn btn-success">Submit</button>
       <button type="button" onclick="cancelFileForm()" class="btn btn-link">cancel</button>
     </form>
-
+ <div id="list-container"></div>
 <!-- I don't know that this bit of Handlebars is correctly placed or used correctly -->
 
+
+</div>
+
+<script id="list-template" type="text/x-handlebars-template">
+  <ul class="list-group">
+    {{#each files}}
     <li class="list-group-item">
-      {{image}} - {{length}} - {{width}} - {{depth}}
+    <strong>  {{image}} </strong> - {{length}} - {{width}} - {{depth}}
       <span class="pull-right">
       <button type="button" class="btn btn-xs btn-default" onclick="handleEditFileClick('{{_id}}')">Edit</button>
       <button type="button" class="btn btn-xs btn-danger" onclick="handleDeleteFileClick('{{_id}}')">Del</button>
       </span>
     </li>
-  </div>
+    {{/each}}
+  </ul>
+
+</script>
+
+
 
       <footer>
         <p>&copy; 2018 Dustin Doom.</p>

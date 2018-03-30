@@ -19,8 +19,8 @@ router.use('/doc', function(req, res, next) {
  * Get a list of all files in the DB
  */
 router.get('/file', function(req, res, next) {
-  const fileModel = mongoose.model('File', FileSchema);
-  module.exports = File;
+  const fileModel = mongoose.model('File');
+
 
   fileModel.find({deleted: {$ne: true}}, function(err, files) {
     if (err) {
@@ -53,8 +53,10 @@ router.get('/file/:fileId', function(req, res, next) {
 router.post('/file', function(req, res, next) {
   const File = mongoose.model('File');
   const fileData = {
-    title: req.body.title,
-    description: req.body.description,
+    image: req.body.image,
+    length: req.body.length,
+    width: req.body.width,
+    depth: req.body.depth,
   };
 
   File.create(fileData, function(err, newFile) {
@@ -83,8 +85,10 @@ router.put('/file/:fileId', function(req, res, next) {
       return res.status(404).json({message: "File not found"});
     }
 
-    file.title = req.body.title;
-    file.description = req.body.description;
+    file.image = req.body.image;
+    file.length = req.body.length;
+    file.width = req.body.width;
+    file.depth = req.body.depth;
 
     file.save(function(err, savedFile) {
       if (err) {

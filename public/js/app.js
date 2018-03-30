@@ -1,12 +1,36 @@
 
 //Blast Seat form (pic [need devevelopment], length/width/depth)
 
+function getFiles() {
+  return $.ajax('/api/file')
+    .then(res => {
+      console.log("Results from getFiles()", res);
+      return res;
+    })
+    .fail(err => {
+      console.error("Error in getFiles()", err);
+      throw err;
+    });
+}
+function refreshFileList() {
+  const template = $('#list-template').html();
+  const compiledTemplate = Handlebars.compile(template);
 
+  getFiles()
+    .then(files => {
+
+      window.fileList = files;
+
+      const data = {files: files};
+      const html = compiledTemplate(data);
+      $('#list-container').html(html);
+    })
+}
 
 function handleAddFileClick() {
-  console.log("Baby steps...");
   setFormData({});
   toggleAddFileFormVisibility();
+  console.log("Baby steps...");
 }
 
 function toggleAddFileFormVisibility() {
@@ -24,31 +48,51 @@ function submitFileForm() {
    _id: $('#file-id').val(),
  };
 
- let method, url;
-if (fileData._id) {
-  method = 'PUT';
-  url = '/api/file/' + fileData._id;
-} else {
-  method = 'POST';
-  url = '/api/file';
+     let method, url;
+    if (fileData._id) {
+      method = 'PUT';
+      url = '/api/file/' + fileData._id;
+    } else {
+      method = 'POST';
+      url = '/api/file';
+    }
+
+    $.ajax({
+      type: method,
+      url: url,
+      data: JSON.stringify(fileData),
+      dataType: 'json',
+      contentType : 'application/json',
+    })
+      .done(function(response) {
+//        console.log("We have posted the data");
+        refreshFileList();
+        toggleAddFileFormVisibility();
+      })
+      .fail(function(error) {
+        console.log("Failures at posting, we are", error);
+      })
+
+      function cancelFileForm() {
+          toggleAddFileFormVisibility();
 }
 
-$.ajax({
-  type: method,
-  url: url,
-  data: JSON.stringify(fileData),
-  dataType: 'json',
-  contentType : 'application/json',
-})
-  .done(function(response) {
-    console.log("We have posted the data");
-    refreshFileList();
-    toggleAddFileFormVisibility();
-  })
-  .fail(function(error) {
-    console.log("Failures at posting, we are", error);
-  })
-
+/*      $.ajax({
+        type: "POST",
+        url: '/api/file',
+        data: JSON.stringify(fileData),
+        dataType: 'json',
+        contentType : 'application/json',
+      })
+        .done(function(response) {
+          console.log("We have posted the data");
+          refreshFileList();
+          toggleAddFileFormVisibility();
+        })
+        .fail(function(error) {
+          console.log("Failures at posting, we are", error);
+        });
+*/
 
  console.log("Your file data", fileData);
 }
@@ -58,21 +102,6 @@ function cancelFileForm() {
   toggleAddFileFormVisibility();
 }
 
-$.ajax({
-  type: "POST",
-  url: '/api/file',
-  data: JSON.stringify(fileData),
-  dataType: 'json',
-  contentType : 'application/json',
-})
-  .done(function(response) {
-    console.log("We have posted the data");
-    refreshFileList();
-    toggleAddFileFormVisibility();
-  })
-  .fail(function(error) {
-    console.log("Failures at posting, we are", error);
-  });
 
   function handleEditFileClick() {
   console.log("I will edit for you!");
@@ -96,11 +125,14 @@ function refreshFileList() {
 function handleEditFileClick(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
-    $('#file-title').val(file.title);
-    $('#file-description').val(file.description);
+    $('#file-image').val(file.image);
+    $('#file-length').val(file.length);
+    $('#file-width').val(file.width);
+    $('#file-depth').val(file.depth);
     $('#file-id').val(file._id);
     setFormData(file);
     toggleAddFileFormVisibility();
+    console.log("I will edit for you! too");
   }
 }
 
@@ -139,6 +171,8 @@ function setFormData(data) {
   $('#file-description').val(file.description);
   $('#file-id').val(file._id);
 }
+
+
 
 /* explosive chart - not yet working right, so omited */
 
