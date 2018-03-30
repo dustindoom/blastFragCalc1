@@ -172,7 +172,10 @@ function setFormData(data) {
   $('#file-id').val(file._id);
 }
 
-
+$(document).ready(function() {
+  refreshFileList();
+  
+})
 
 /* explosive chart - not yet working right, so omited */
 
